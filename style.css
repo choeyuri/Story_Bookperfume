@@ -1,0 +1,636 @@
+@font-face {
+    font-family: 'Cafe24Oneprettynight';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.1/Cafe24Oneprettynight.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Cafe24ClassicType-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/Cafe24ClassicType-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+/* 기본 셋팅 */
+*{
+    font-size: 10px;
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    background-color: rgb(0, 0, 0);
+    width: 1280px;
+    margin: 0 auto;
+}
+
+body, html {scroll-behavior:smooth;}
+
+a{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-size: 1.6rem;
+}
+.fontH{
+    font-family: 'Cafe24ClassicType-Regular';
+    font-size: 1.6rem;
+    color: white;
+}
+
+.fontP{
+    font-family: 'Cafe24Oneprettynight';
+}
+
+/* 메뉴바 설정 */
+.menubar{
+    -webkit-box-sizing: border-box;
+    width: 1280px;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    display: flex;
+    background-color: rgb(59, 52, 47);
+    margin: 0 auto;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    z-index:12;
+}
+
+.item{
+    display: flex;
+    list-style: none;
+    padding: 0px;
+}
+
+.item li{
+    padding: 10px 12px;
+}
+.item li :hover {
+    background-color: rgb(181, 154, 134);
+    color: white;
+    border-radius: 10px;
+}
+
+.item li a{
+    padding: 10px 7px;
+    font-size: 1.3rem;
+}
+
+#toggle{
+    width: 20px;
+    display: none;
+    position: absolute;
+    right: 15px;
+}
+
+/* 메인 페이지 */
+#maincontainer{
+    width: 1280px;
+    margin: 0 auto;
+    height: 900px;
+    background-color:rgb(181, 154, 134);
+}
+
+.subject{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    font-size: 4rem;
+    color: rgb(255, 255, 255);
+    width: 65%;
+    height: 80px;
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    
+}
+
+.frametop {
+    margin: 0 auto;
+    margin-top: 100px;
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+.framebottom{
+    width: 60%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+/* 슬라이드 설정 */
+
+.section [id*="slide"] {
+    display:none;}
+
+.section{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+.section .slidewrap {
+    display: flex;
+    max-width:75%;
+    margin:0 auto;
+    overflow:hidden;
+    position:relative;
+}
+.section .slidelist {
+    white-space:nowrap;
+    font-size:0;
+}
+.section .slidelist > li {
+    display:inline-block;
+    vertical-align:middle;
+    width:100%;
+    transition:all .5s;
+}
+.section .slidelist > li > a {
+    display:block;
+    position:relative;
+}
+.section .slide-control {
+    position:absolute;
+    display: flex;
+    top:0;
+    left:0;
+    z-index:10;
+    width:100%;
+    height:100%;
+}
+.section .slide-control label {
+    display: flex;
+    position:absolute;
+    z-index:1;
+    top:50%;
+    transform:translateY(-50%);
+    padding:40px;
+    cursor:pointer;
+}
+.section .slide-control .left {
+    left:0px;
+    background:url('./img/left2.png') center center / 100% no-repeat;
+}
+.section .slide-control .right {
+    right:0px;
+    background:url('./img/right2.png') center center / 100% no-repeat;}
+
+.section .slide-control [class*="control"] {display:none;}
+.section [id="slide01"]:checked ~ .slidewrap .slidelist > li {transform:translateX(0%);}
+.section [id="slide02"]:checked ~ .slidewrap .slidelist > li {transform:translateX(-100%);}
+.section [id="slide03"]:checked ~ .slidewrap .slidelist > li {transform:translateX(-200%);}
+.section [id="slide04"]:checked ~ .slidewrap .slidelist > li {transform:translateX(-300%);}
+.section [id="slide05"]:checked ~ .slidewrap .slidelist > li {transform:translateX(-400%);}
+
+.section [id="slide01"]:checked ~ .slidewrap .control01 {display:block;}
+.section [id="slide02"]:checked ~ .slidewrap .control02 {display:block;}
+.section [id="slide03"]:checked ~ .slidewrap .control03 {display:block;}
+.section [id="slide04"]:checked ~ .slidewrap .control04 {display:block;}
+.section [id="slide05"]:checked ~ .slidewrap .control05 {display:block;}
+
+/* 그리드 설정 */
+.row{
+    width: 100%;
+    display: flex;
+    
+}
+.row2{
+    width: 100%;
+    height: 900px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    margin: 0 auto;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+.row3{
+    width: 100%;
+    height: 900px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    margin: 0 auto;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+.row4{
+    width: 100%;
+    height: 900px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    margin: 0 auto;
+    padding: 0px 20px;
+}
+/* .row4{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    margin: 0 auto;
+} */
+.col0{
+    width: 70%;
+    margin: 25px 10px;
+    text-align: center;
+    display: flex;
+}
+.col1{
+    width: 30%;
+    margin: 25px 10px;
+    text-align: center;
+    display: flex;
+    background-color: rgb(237, 231, 229);
+    border-radius: 10px;
+    z-index:11;
+}
+.col2{
+    width: 15%;
+    height: 400px;
+    margin: 10px;
+    text-align: center;
+    display: flex;
+    border-style: solid;
+    border-color: rgb(59, 52, 47);
+    border-left: none;
+    border-right: none;
+}
+.col3{
+    width: 100%;
+    height: 20vh;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    bottom: 0px;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(181, 154, 134);
+
+}
+.w100{width: 100%;}
+.h800{height: 800px;}
+.h500{height: 450px;}
+.h100{height: 10vh;}
+.h200{height: 20vh;}
+.marginB{padding-top: 20px; padding-bottom: 70px;}
+.borderT{border-top: thin; border-style: solid; border-left: none; border-right: none; border-bottom: none;}
+.borderB{border-bottom: thin; border-style: solid; border-left: none; border-right: none; border-top: none;}
+.p10{padding-top: 10px; padding-bottom: 10px;}
+
+/* 서브페이지 */
+/* margin 및 padding 4 자리 순서 위 오른쪽 아래 왼쪽 */
+#sub1{
+    display: flex;
+    width: 1280px;
+    margin: 0 auto;
+    height: 900px;
+    background-color: rgb(181, 154, 134);
+}
+#sub2{
+    display: flex;
+    width: 1280px;
+    margin: 0 auto;
+    height: 900px;
+    background-color: rgb(181, 154, 134);
+}
+#sub3{
+    display: flex;
+    width: 1280px;
+    margin: 0 auto;
+    height: 900px;
+    background-color: rgb(181, 154, 134);
+}
+#sub4{
+    display: flex;
+    width: 1280px;
+    margin: 0 auto;
+    height: 900px;
+    background-color: rgb(181, 154, 134);
+}
+#sub5{
+    display: flex;
+    width: 1280px;
+    margin: 0 auto;
+    height: 900px;
+    background-color: rgb(181, 154, 134);
+}
+
+.subtitle{
+    text-align: center;
+    display: block;
+    background-size: contain;
+    width: 100%;
+    height: 30vh;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 50px 50px 10px 50px;
+    font-family: 'Cafe24ClassicType-Regular';
+    font-size: 2.4rem;
+}
+.text{
+    text-align: center;
+    display: block;
+    background-size: contain;
+    width: 100%;
+    justify-content: center;
+    margin: 0 auto;
+    padding:  50px 30px 70px 30px;
+    font-family: 'Cafe24ClassicType-Regular';
+    font-size: 2.1rem;
+}
+.smalltext{
+    font-family: 'Cafe24Oneprettynight'; 
+    font-size: 1.6rem; 
+    margin: 10px 0px;
+}
+.alice{
+    background-image: url(img/alice\ info.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transform: rotate(-15deg);
+}
+.anne{
+    background-image: url(img/anne\ info.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transform: rotate(15deg);
+}
+.sea{
+    background-image: url(img/sea\ info.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.holmes{
+    background-image: url(img/holmes\ info.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.romeo{
+    background-image: url(img/romeo\ info.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transform: rotate(-10deg);
+}
+/* 향수 사이트 연결 */
+
+/* #recommend{
+    display: flex;
+    width: 100%;
+    margin: 0 auto;
+    height: 100%;
+    background-color: rgb(181, 154, 134);
+    color: white;
+    font-family: 'Cafe24Oneprettynight';
+} */
+#rec1{
+    display: flex;
+    width: 1280px;
+    margin: 0 auto;
+    height: 80vh;
+    background-color: rgb(181, 154, 134);
+}
+.recbox{
+    background-color: rgb(181, 154, 134);
+    color: white;
+    width: 1280px;
+    display: flex;
+    margin: 0 auto;
+    padding-top: 30px;
+    justify-content: center;
+    font-size: 3.2rem;
+    font-family: 'Cafe24Oneprettynight';
+
+}
+.pink{
+    background-image: url(img/alice\ perfume.png);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: 30px;
+    margin: 0 auto;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+}
+p{
+    font-family: 'Cafe24ClassicType-Regular';
+    font-size: 1.4rem;
+    color: black;
+}
+.pink:hover {background-color: rgb(255, 169, 169);}
+.red:hover{background-color: rgb(196, 27, 27);}
+.blue:hover{background-color: rgb(50, 109, 225);}
+.brown:hover{background-color: rgb(255, 216, 59);}
+.violet:hover{background-color: rgb(63, 52, 36);}
+
+.red{
+    background-image: url(img/anne\ perfume.png);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: 30px;
+    margin: 0 auto;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+}
+.blue{
+    background-image: url(img/sea\ perfume.png);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: 30px;
+    margin: 0 auto;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+}
+.brown{
+    background-image: url(img/holmes\ perfume.png);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: 30px;
+    margin: 0 auto;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+}
+.violet{
+    background-image: url(img/romeo\ perfume.png);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: 30px;
+    margin: 0 auto;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+}
+.footer{
+    background-color: rgb(59, 52, 47);
+    text-align: center;
+    width: 1280px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    align-items: center;
+    font-size: 2rem;
+    font-family: 'Cafe24Oneprettynight';
+}
+
+@media only screen and (max-width: 768px)
+{   
+    body{
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    #maincontainer{
+        width: 100%;
+    }
+    .section .slidewrap {
+        max-width:90%;
+    }
+    .subject {
+        font-size: 1.4rem;
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+    .subtitle{
+        font-size: 1.6rem;
+    }
+    .menubar {
+        padding: 18px 15px;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+    }
+    /* .left{
+        background-size: 80%;
+    }
+    .right{
+        background-size: 80%;
+    } */
+    #sub1{
+        width: 100%;
+    }
+    #sub2{
+        width: 100%;
+    }
+    #sub3{
+        width: 100%;
+    }
+    #sub4{
+        width: 100%;
+    }
+    #sub5{
+        width: 100%;
+    }
+    #rec1{
+        width: 100%;
+        height: 100%;
+        padding-top: 50px;
+    }
+    .smalltext{
+        font-size: 60%;
+    }
+    .marginB{padding-bottom: 35px;}
+    .recbox{
+        width: 100%;
+        font-size: 100%;
+        margin: 0 auto;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .footer{
+        font-size: 100%;
+        width: 100%;
+    }
+    .row2{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .row3{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+    .row4{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .col0{
+        width: 100%;
+    }
+    .col1{
+        width: 100%;
+    }
+    .col2{
+        width: 50%;
+        height: 50vh;
+        margin-bottom: 10px;
+    }
+    .item {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        display: none;
+    }
+    .item li {
+        width: 100%;
+        text-align: center;
+        padding: 20px 10px;
+    }
+    #toggle {
+        display: block;
+    }
+    .item.active,
+    .item.active {
+        display: flex;
+    }
+}
